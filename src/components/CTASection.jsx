@@ -19,11 +19,11 @@ const CTASection = () => {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 md:flex-shrink-0">
             <Link to="/register">
-              <button className="bg-black text-white px-8 py-3 font-medium hover:bg-red-600 transition-colors cursor-pointer duration-200 rounded-md text-center">
+              <button className="bg-black text-white px-8 py-3 font-medium border-2 border-black hover:bg-red-600 transition-colors cursor-pointer duration-200 rounded-md text-center w-full sm:w-auto">
                 Register
               </button>
             </Link>
-            <button className="border-2 border-gray-900 bg-white text-gray-900 px-8 py-3 font-medium hover:bg-gray-50 hover:text-red-600 transition-colors cursor-pointer duration-200 rounded-md">
+            <button className="border-2 border-gray-900 bg-white text-gray-900 px-8 py-3 font-medium hover:bg-gray-50 hover:text-red-600 transition-colors cursor-pointer duration-200 rounded-md w-full sm:w-auto">
               Learn More
             </button>
           </div>

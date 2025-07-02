@@ -19,11 +19,11 @@ const ImageMarquee = () => {
       <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
 
       <div className="flex animate-marquee space-x-6">
-        {[...images, ...images].map((img, idx) => (
+        {[...siranimages, ...siranimages].map((img, idx) => (
           <img
             key={idx}
             src={`${baseUrl}images/${img}`}
-            alt={`Slide ${idx}`}
+            alt={`Slide ${idx + 1}`}
             className="w-60 h-40 object-cover rounded-lg shadow-md"
           />
         ))}

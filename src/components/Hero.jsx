@@ -27,11 +27,11 @@ const Hero = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/register">
-                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-base font-medium rounded-md transition-colors duration-200 shadow-lg cursor-pointer hover:shadow-xl">
+                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-base font-medium rounded-md transition-colors duration-200 shadow-lg cursor-pointer hover:shadow-xl w-full sm:w-auto">
                   Register
                 </button>
               </Link>
-              <button className="border border-gray-300 cursor-pointer text-gray-700 hover:bg-gray-50 px-8 py-3 text-base font-medium rounded-md transition-colors duration-200">
+              <button className="border border-gray-300 cursor-pointer text-gray-700 hover:bg-gray-50 px-8 py-3 text-base font-medium rounded-md transition-colors duration-200 w-full sm:w-auto">
                 Learn More
               </button>
             </div>
