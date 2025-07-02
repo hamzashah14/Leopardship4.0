@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://hamzashah14.github.io/Leopardship",
+  "homepage": "https://hamzashah14.github.io/Leopardship4.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
