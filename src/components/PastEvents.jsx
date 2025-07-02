@@ -1,6 +1,7 @@
 import React from "react";
 
 const PastEvents = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const events = [
     {
       id: 1,
@@ -8,7 +9,7 @@ const PastEvents = () => {
       description:
         "A challenging 5-day trek through the northern mountains of Pakistan, testing endurance and building team spirit.",
       date: "March 2024",
-      image: "/images/Event1.jpg",
+      image: `${baseUrl}images/Event1.jpg`,
     },
     {
       id: 2,
@@ -16,7 +17,7 @@ const PastEvents = () => {
       description:
         "Learn essential survival skills while camping in the remote wilderness areas of Hunza Valley.",
       date: "January 2024",
-      image: "/images/Event2.jpg",
+      image: `${baseUrl}images/Event2.jpg`,
     },
     {
       id: 3,
@@ -24,7 +25,7 @@ const PastEvents = () => {
       description:
         "Professional rock climbing training and adventure in the scenic cliffs of Margalla Hills.",
       date: "November 2023",
-      image: "/images/Event3.jpg",
+      image: `${baseUrl}images/Event3.jpg`,
     },
     {
       id: 4,
@@ -32,7 +33,7 @@ const PastEvents = () => {
       description:
         "Thrilling white-water rafting experience through the rapids of River Chitral with safety training.",
       date: "September 2023",
-      image: "/images/Event4.jpg",
+      image: `${baseUrl}images/Event4.jpg`,
     },
   ];
 

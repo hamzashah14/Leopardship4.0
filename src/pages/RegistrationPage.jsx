@@ -11,7 +11,7 @@ const RegistrationPage = () => {
       <div
         className="relative w-full h-80 flex flex-col items-center justify-center text-white"
         style={{
-          backgroundImage: "url('/images/RegBack.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/RegBack.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

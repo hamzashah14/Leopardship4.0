@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from 'react-icons/hi';
+import logo from '../assets/logo.png'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex-shrink-0">
             <a href="/">
-              <img src="/src/assets/logo.png" alt="Logo" className="h-20 object-contain" />
+              <img src={logo} alt="Logo" className="h-20 object-contain" />
             </a>
           </div>
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import AnimatedText from "./ui/AnimatedText";
 
 const Hero = () => {
+
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <section className="bg-white pt-16 pb-12 lg:pt-8 lg:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +49,7 @@ const Hero = () => {
             <div className="relative">
               {/* Actual Image from public/images */}
               <img
-                src="/images/Hero.png"
+                src={`${baseUrl}images/Hero.png`}
                 alt="Leopardship Adventure"
                 className="w-full h-96 lg:h-[450px] object-cover rounded-lg shadow-md"
                 loading="lazy"

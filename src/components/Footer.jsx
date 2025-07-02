@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageCreditsModal from "./ImageCreditsModal";
 import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import footerLogo from "../assets/footer-logo.png";
 
 const Footer = () => {
   const [showCredits, setShowCredits] = useState(false);
@@ -14,7 +15,7 @@ const Footer = () => {
           <div className="flex-shrink-0">
             <div className="w-28 h-24 bg-transparent flex items-center justify-center">
               <img
-                src="/src/assets/footer-logo.png"
+                src={footerLogo}
                 alt="Logo"
                 className="h-full object-contain"
               />

@@ -6,13 +6,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const images = [
-  "/images/image1.jpg",
-  "/images/image2.jpg",
-  "/images/image3.jpg",
-  "/images/image4.jpg",
-  "/images/image5.jpg",
-  "/images/image6.jpg",
+  `${baseUrl}images/image1.jpg`,
+  `${baseUrl}images/image2.jpg`,
+  `${baseUrl}images/image3.jpg`,
+  `${baseUrl}images/image4.jpg`,
+  `${baseUrl}images/image5.jpg`,
+  `${baseUrl}images/image6.jpg`,
 ];
 
 const SwiperCarousel = () => {
