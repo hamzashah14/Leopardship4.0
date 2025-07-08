@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiMenu, HiX } from 'react-icons/hi';
-import logo from '../assets/logo.png'; 
+import { HiMenu, HiX } from "react-icons/hi";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navbar = () => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false); // Close menu on navigation
     }
   };
@@ -32,26 +32,26 @@ const Navbar = () => {
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex space-x-8">
             <button
-              onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
+              onClick={() => scrollToSection("home")}
+              className="text-gray-700 hover:text-gray-900 cursor-pointer border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
+              onClick={() => scrollToSection("about")}
+              className="text-gray-700 hover:text-gray-900 cursor-pointer border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               About
             </button>
             <button
-              onClick={() => scrollToSection('events')}
-              className="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
+              onClick={() => scrollToSection("events")}
+              className="text-gray-700 hover:text-gray-900 cursor-pointer border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               Events List
             </button>
             <button
-              onClick={() => scrollToSection('calltoaction')}
-              className="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
+              onClick={() => scrollToSection("calltoaction")}
+              className="text-gray-700 hover:text-gray-900 cursor-pointer border-b-2 border-transparent hover:border-black px-3 py-2 text-sm font-medium transition-colors duration-200"
             >
               Get Involved
             </button>
@@ -65,8 +65,8 @@ const Navbar = () => {
               </button>
             </Link>
             <button
-              onClick={() => scrollToSection('about')}
-              className="border border-transparent text-gray-700 hover:text-gray-900 px-4 py-2 text-sm font-medium underline rounded-md transition-colors duration-200 inline-block text-center"
+              onClick={() => scrollToSection("about")}
+              className="cursor-pointer border border-transparent text-gray-700 hover:text-gray-900 px-4 py-2 text-sm font-medium underline rounded-md transition-colors duration-200 inline-block text-center"
             >
               Learn More
             </button>
@@ -92,42 +92,44 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div
         className={`md:hidden bg-white border-t border-gray-200 shadow-md overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
           <button
-            onClick={() => scrollToSection('home')}
+            onClick={() => scrollToSection("home")}
             className="block w-full text-left px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 text-base font-medium"
           >
             Home
           </button>
           <button
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection("about")}
             className="block w-full text-left px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 text-base font-medium"
           >
             About
           </button>
           <button
-            onClick={() => scrollToSection('events')}
+            onClick={() => scrollToSection("events")}
             className="block w-full text-left px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 text-base font-medium"
           >
             Events List
           </button>
           <button
-            onClick={() => scrollToSection('calltoaction')}
+            onClick={() => scrollToSection("calltoaction")}
             className="block w-full text-left px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 text-base font-medium"
           >
             Get Involved
           </button>
-          <a
-            href="/register"
-            className="block w-full text-center bg-red-600 text-white px-3 py-2 rounded-md font-medium hover:bg-red-700 transition-colors duration-200"
-          >
-            Register
-          </a>
+          <Link to="/register">
+            <button
+              href="/register"
+              className="block w-full text-center bg-red-600 text-white px-3 py-2 rounded-md font-medium hover:bg-red-700 transition-colors duration-200"
+            >
+              Register
+            </button>
+          </Link>
           <button
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection("about")}
             className="block w-full text-center border border-transparent text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md font-medium underline transition-colors duration-200"
           >
             Learn More

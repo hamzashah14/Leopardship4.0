@@ -38,7 +38,7 @@ const PastEvents = () => {
   ];
 
   return (
-    <section id="events" className="bg-gray-50 pt-8 lg:py-24">
+    <section id="events" className="bg-gray-50 pt-8 lg:pt-16 lg:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

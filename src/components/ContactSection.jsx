@@ -42,24 +42,24 @@ const ContactSection = () => {
             </p>
             <div className="space-y-4 text-gray-800">
               <div className="flex items-center gap-3">
-                <HiLocationMarker className="h-6 w-6 text-red-800 flex-shrink-0" />
+                <HiLocationMarker className="h-6 w-6 text-red-600 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold mb-1">Address</h3>
-                  <p>123 Leopardship St, Adventure City, Country</p>
+                  <p>First Floor, The Platform, Hariyawal Chowk, D Ground, Faisalabad, PAK</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <HiPhone className="h-6 w-6 text-red-800 flex-shrink-0" />
+                <HiPhone className="h-6 w-6 text-red-600 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+92 (300) 6577880</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <HiMail className="h-6 w-6 text-red-800 flex-shrink-0" />
+                <HiMail className="h-6 w-6 text-red-600 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p>contact@leopardship.com</p>
+                  <p>leopardshipexpedition@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ const ContactSection = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-red-800"
+                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                 placeholder="John Doe"
               />
             </div>
@@ -94,7 +94,7 @@ const ContactSection = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-red-800"
+                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                 placeholder="john@example.com"
               />
             </div>
@@ -109,7 +109,7 @@ const ContactSection = () => {
                 name="whatYouDo"
                 value={formData.whatYouDo}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-red-800"
+                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                 placeholder="Your profession or role"
               />
             </div>
@@ -124,7 +124,7 @@ const ContactSection = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-red-800"
+                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                 placeholder="Subject of your message"
               />
             </div>
@@ -140,14 +140,14 @@ const ContactSection = () => {
                 onChange={handleChange}
                 required
                 rows="4"
-                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-red-800"
+                className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600"
                 placeholder="Write your message here..."
               />
             </div>
 
             <button
               type="submit"
-              className="bg-black text-white px-8 py-3 font-medium hover:bg-red-800 transition-colors cursor-pointer duration-200 rounded-md"
+              className="bg-black text-white px-8 py-3 font-medium hover:bg-red-600 transition-colors cursor-pointer duration-200 rounded-md"
             >
               Send Message
             </button>

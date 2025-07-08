@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import AnimatedText from "./ui/AnimatedText";
 
 const Hero = () => {
-
   const baseUrl = import.meta.env.BASE_URL;
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="bg-white pt-16 pb-12 lg:pt-8 lg:pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +38,10 @@ const Hero = () => {
                   Register
                 </button>
               </Link>
-              <button className="border border-gray-300 cursor-pointer text-gray-700 hover:bg-gray-50 px-8 py-3 text-base font-medium rounded-md transition-colors duration-200 w-full sm:w-auto">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="border border-gray-300 cursor-pointer text-gray-700 hover:bg-gray-50 px-8 py-3 text-base font-medium rounded-md transition-colors duration-200 w-full sm:w-auto"
+              >
                 Learn More
               </button>
             </div>
