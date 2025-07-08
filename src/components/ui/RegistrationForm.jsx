@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const RegistrationForm = ({ infoText, welcomeText }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    whatsappNo: '',
-    email: '',
-    cnicNo: '',
-    cityOfResidence: '',
-    referredBy: '',
-    instituteName: '',
-    designation: '',
-    cityOfWork: '',
-    message: '',
+    fullName: "",
+    whatsappNo: "",
+    email: "",
+    cnicNo: "",
+    cityOfResidence: "",
+    referredBy: "",
+    instituteName: "",
+    designation: "",
+    cityOfWork: "",
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -29,44 +29,39 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
     setLoading(true);
 
     try {
-      // Create URL-encoded form data (most compatible with Google Apps Script)
+      const secretKey = "NYLE2024_SECRET";
+      const dataWithSecret = { ...formData, secretKey };
+
       const urlEncodedData = new URLSearchParams();
-      Object.keys(formData).forEach(key => {
-        urlEncodedData.append(key, formData[key]);
+      Object.keys(dataWithSecret).forEach((key) => {
+        urlEncodedData.append(key, dataWithSecret[key]);
       });
 
-      console.log('Sending data:', Object.fromEntries(urlEncodedData));
-
-      const response = await fetch("https://script.google.com/macros/s/AKfycbz_A0D37CThhjgw_1raWdnZIP5RS-RB8lbMGrW1UyE3RchnA5nt24YZ59q1OJGYL1LtBA/exec", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: urlEncodedData,
-        redirect: 'follow'
-      });
-
-      // Try to read the response
-      const result = await response.text();
-      console.log('Response:', result);
-      
-      try {
-        const jsonResult = JSON.parse(result);
-        if (jsonResult.result === "success") {
-          setSubmitted(true);
-        } else {
-          console.error("Submission error:", jsonResult);
-          alert("Error: " + (jsonResult.message || "Please try again."));
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby-aP6gMehh-WueYgU5v28Uk33FvlR63O_fE6aT4FVgTv99xYsjVlFGuuSS77KxKAfx/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: urlEncodedData,
         }
-      } catch (parseError) {
-        // If we can't parse JSON, but got a response, assume success
-        console.log('Could not parse response as JSON, assuming success');
+      );
+
+      const result = await response.text();
+      const jsonResult = JSON.parse(result);
+
+      if (jsonResult.result === "success") {
         setSubmitted(true);
+      } else {
+        console.error("Submission error:", jsonResult);
+        alert("Error: " + (jsonResult.message || "Please try again."));
       }
-      
     } catch (err) {
       console.error("Error submitting form:", err);
-      alert("Submission failed. Please check your internet connection and try again.");
+      alert(
+        "Submission failed. Please check your internet connection and try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -104,7 +99,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {/* Small Inputs - 2 per row */}
             <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="fullName"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Full Name
               </label>
               <input
@@ -120,7 +118,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="whatsappNo" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="whatsappNo"
+                className="block text-sm font-medium text-gray-700"
+              >
                 WhatsApp No.
               </label>
               <input
@@ -136,7 +137,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <input
@@ -152,7 +156,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="cnicNo" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="cnicNo"
+                className="block text-sm font-medium text-gray-700"
+              >
                 CNIC No.
               </label>
               <input
@@ -168,7 +175,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="cityOfResidence" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="cityOfResidence"
+                className="block text-sm font-medium text-gray-700"
+              >
                 City of Residence
               </label>
               <input
@@ -184,7 +194,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="cityOfWork" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="cityOfWork"
+                className="block text-sm font-medium text-gray-700"
+              >
                 City of Work
               </label>
               <input
@@ -200,7 +213,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="instituteName" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="instituteName"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Institute / University / Company
               </label>
               <input
@@ -216,7 +232,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div>
-              <label htmlFor="designation" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="designation"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Designation
               </label>
               <input
@@ -233,8 +252,12 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
 
             {/* Long Input Fields - Full Width */}
             <div className="md:col-span-2">
-              <label htmlFor="referredBy" className="block text-sm font-medium text-gray-700">
-                Who referred you to join this National Youth Leadership Expedition?
+              <label
+                htmlFor="referredBy"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Who referred you to join this National Youth Leadership
+                Expedition?
               </label>
               <input
                 type="text"
@@ -249,7 +272,10 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Any Message
               </label>
               <textarea
@@ -271,7 +297,7 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
                 disabled={loading}
                 className="w-32 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {loading ? 'Submitting...' : 'Submit'}
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </div>
           </div>
