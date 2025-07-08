@@ -1,5 +1,24 @@
 import React, { useState } from "react";
 
+const fetchExistingEntries = async () => {
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycby-aP6gMehh-WueYgU5v28Uk33FvlR63O_fE6aT4FVgTv99xYsjVlFGuuSS77KxKAfx/exec"
+    );
+    const data = await response.json();
+    if (data.result === "success") {
+      return {
+        emails: new Set(data.emails.map((e) => e.toLowerCase())),
+        cnics: new Set(data.cnics.map((c) => c.toLowerCase())),
+      };
+    }
+    return { emails: new Set(), cnics: new Set() };
+  } catch (error) {
+    console.error("Failed to fetch existing data:", error);
+    return { emails: new Set(), cnics: new Set() };
+  }
+};
+
 const RegistrationForm = ({ infoText, welcomeText }) => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -29,6 +48,25 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
     setLoading(true);
 
     try {
+      // ✅ Fetch existing emails and CNICs
+      const { emails, cnics } = await fetchExistingEntries();
+
+      const emailExists = emails.has(formData.email.toLowerCase());
+      const cnicExists = cnics.has(formData.cnicNo.toLowerCase());
+
+      if (emailExists || cnicExists) {
+        alert(
+          emailExists && cnicExists
+            ? "Both Email and CNIC already exist!"
+            : emailExists
+            ? "Email already exists!"
+            : "CNIC already exists!"
+        );
+        setLoading(false);
+        return;
+      }
+
+      // ✅ Include secret key
       const secretKey = "NYLE2024_SECRET";
       const dataWithSecret = { ...formData, secretKey };
 
@@ -41,9 +79,7 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
         "https://script.google.com/macros/s/AKfycby-aP6gMehh-WueYgU5v28Uk33FvlR63O_fE6aT4FVgTv99xYsjVlFGuuSS77KxKAfx/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: urlEncodedData,
         }
       );
@@ -54,14 +90,11 @@ const RegistrationForm = ({ infoText, welcomeText }) => {
       if (jsonResult.result === "success") {
         setSubmitted(true);
       } else {
-        console.error("Submission error:", jsonResult);
         alert("Error: " + (jsonResult.message || "Please try again."));
       }
     } catch (err) {
       console.error("Error submitting form:", err);
-      alert(
-        "Submission failed. Please check your internet connection and try again."
-      );
+      alert("Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
